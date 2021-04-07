@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/book_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@color/book_image_background"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="5dp"/>
+
+        <LinearLayout
+            android:id="@+id/book_text_container"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintLeft_toRightOf="@id/book_image"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/book_name_text"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:layout_marginHorizontal="15dp"
+                android:text="book name here"
+                android:textColor="@android:color/black"
+                android:fontFamily="@font/no_virus_eng"
+                android:textSize="9pt"
+                android:padding="5dp"
+                android:gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/book_author_text"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="15dp"
+                android:text="author here"
+                android:textColor="@android:color/black"
+                android:fontFamily="@font/no_virus_eng"
+                android:textSize="7pt"
+                android:padding="2dp"
+                android:gravity="center_vertical"/>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

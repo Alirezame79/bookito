@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_graph"
+    app:startDestination="@id/startingFragment">
+
+    <fragment
+        android:id="@+id/startingFragment"
+        android:name="com.methodproduction.bookito.View.StartingFragment"
+        android:label="StartingFragment" >
+        <action
+            android:id="@+id/action_startingFragment_to_bookListFragment"
+            app:destination="@id/bookListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookListFragment"
+        android:name="com.methodproduction.bookito.View.BookListFragment"
+        android:label="BookListFragment" />
+
+</navigation>

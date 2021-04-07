@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name" translatable="false">Bookito</string>
+    <string name="app_name_per" translatable="false">بوکیتو</string>
+
+    <string name="book_name">Book name</string>
+    <string name="search_book">Search</string>
+
+    <string name="search_result">Search Result</string>
+</resources>

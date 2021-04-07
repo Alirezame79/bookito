@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="book_name">نام کتاب</string>
+    <string name="search_book">جستجو</string>
+    <string name="search_result">نتایج جستجو</string>
+</resources>
