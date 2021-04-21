@@ -30,7 +30,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int MY_INTERNET_PERMISSION = 17;
+    private static final int MY_STORAGE_PERMISSION = 17;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,23 +39,15 @@ public class MainActivity extends AppCompatActivity {
         permission();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        MyViewModel viewModel = new MyViewModel();
-        viewModel.getInstance();
-        viewModel.clearList();
-    }
-
     private void permission() {
         if (ContextCompat.checkSelfPermission
-                (MainActivity.this, Manifest.permission.INTERNET)
+                (MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 == PackageManager.PERMISSION_GRANTED){
 
         }else{
             ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.INTERNET},
-                    MY_INTERNET_PERMISSION);
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    MY_STORAGE_PERMISSION);
         }
     }
 

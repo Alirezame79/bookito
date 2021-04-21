@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/starting_layer"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/bookito_name_eng"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:fontFamily="@font/no_virus_eng"
         android:layout_margin="25dp"
-        android:textSize="17pt"
+        android:fontFamily="@font/no_virus_eng"
+        android:text="@string/app_name"
         android:textColor="@android:color/black"
+        android:textSize="17pt"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -22,39 +34,95 @@
         android:id="@+id/bookito_name_per"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_name_per"
         android:fontFamily="@font/beirut_black_per"
-        android:textSize="13pt"
+        android:text="@string/app_name_per"
         android:textColor="@android:color/black"
+        android:textSize="13pt"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintTop_toBottomOf="@id/bookito_name_eng" />
 
     <EditText
         android:id="@+id/book_name_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="90dp"
+        android:background="@drawable/back_btn_background"
         android:hint="@string/book_name"
+        android:padding="10dp"
         android:textColor="@android:color/black"
         android:textSize="7pt"
-        app:layout_constraintVertical_bias="0.4"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintVertical_bias="0.35" />
 
     <Button
-        android:id="@+id/search_book_name_btn"
+        android:id="@+id/search_btn"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/no_virus_eng"
+        android:text="@string/search_book"
+        android:textSize="6pt"
+        app:layout_constraintBottom_toBottomOf="@id/book_name_edit_text"
+        app:layout_constraintLeft_toRightOf="@id/book_name_edit_text"
+        app:layout_constraintTop_toTopOf="@id/book_name_edit_text" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar_book_list"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginHorizontal="10dp"
+        android:indeterminateDrawable="@drawable/custom_progressbar"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/book_name_edit_text"
+        app:layout_constraintRight_toRightOf="@id/book_name_edit_text"
+        app:layout_constraintTop_toTopOf="@id/book_name_edit_text" />
+
+    <TextView
+        android:id="@+id/search_result_board"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="25dp"
-        android:text="@string/search_book"
-        android:textColor="@android:color/black"
+        android:layout_margin="40dp"
+        android:background="@drawable/recycler_view_background"
         android:fontFamily="@font/no_virus_eng"
-        app:layout_constraintTop_toBottomOf="@id/book_name_edit_text"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/search_result"
+        android:textColor="@android:color/black"
+        android:textSize="9pt"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/book_name_edit_text" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/book_list_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginHorizontal="25dp"
+        android:background="@drawable/recycler_view_background"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_result_board" />
+
+    <TextView
+        android:id="@+id/no_result_found_board"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:fontFamily="@font/no_virus_eng"
+        android:text="@string/no_result_found"
+        android:textColor="@android:color/black"
+        android:textSize="7pt"
+        android:visibility="invisible"
+        app:layout_constraintLeft_toLeftOf="@id/book_list_recyclerview"
+        app:layout_constraintRight_toRightOf="@id/book_list_recyclerview"
+        app:layout_constraintTop_toTopOf="@id/book_list_recyclerview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background1"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/topic_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/testing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/back_btn_background"
+            android:gravity="center"
+            android:text="@string/book_details"
+            android:textSize="11pt"
+            android:fontFamily="@font/no_virus_eng"
+            android:textColor="@android:color/black"
+            android:padding="10dp"
+            android:layout_margin="15dp"/>
+
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/data_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topic_view"
+        android:layout_margin="10dp"
+        android:background="@drawable/back_btn_background">
+
+        <ImageView
+            android:id="@+id/book_image"
+            android:layout_width="90dp"
+            android:layout_height="100dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@mipmap/ic_launcher"
+            android:layout_margin="20dp"/>
+
+        <TextView
+            android:id="@+id/book_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/book_image"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/book_image"
+            android:text="@string/name"
+            android:layout_marginVertical="10dp"
+            android:layout_marginHorizontal="10dp"
+            android:padding="5dp"
+            android:textSize="8pt"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/book_author"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/book_image"
+            app:layout_constraintBottom_toBottomOf="@id/book_image"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/author"
+            android:layout_marginVertical="10dp"
+            android:layout_marginHorizontal="10dp"
+            android:padding="3dp"
+            android:textSize="6pt"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/book_pub_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/book_image"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/book_image"
+            android:text="@string/publish_date"
+            android:layout_marginVertical="30dp"
+            android:layout_marginStart="-5dp"
+            android:layout_marginEnd="5dp"
+            android:padding="3dp"
+            android:textSize="7pt"
+            android:textColor="@android:color/black"/>
+
+        <TextView
+            android:id="@+id/book_details"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/book_pub_date"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/book_image"
+            android:text="@string/detail"
+            android:layout_marginVertical="30dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="-5dp"
+            android:padding="3dp"
+            android:textSize="7pt"
+            android:textColor="@android:color/black"/>
+
+        <Button
+            android:id="@+id/download_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintBottom_toBottomOf="@id/data_container"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:background="@drawable/button_background"
+            android:layout_margin="20dp"
+            android:text="@string/download"
+            android:fontFamily="@font/no_virus_eng"
+            android:textSize="9pt"
+            android:elevation="15dp"
+            android:gravity="center"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

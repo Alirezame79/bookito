@@ -6,4 +6,14 @@
     <string name="search_book">Search</string>
 
     <string name="search_result">Search Result</string>
+    <string name="book_details">Book Details</string>
+
+    <string name="name">Name : </string>
+    <string name="author">Author : </string>
+    <string name="publish_date">Publish date : </string>
+    <string name="detail">More Detail : </string>
+
+    <string name="no_result_found">No Result Found</string>
+
+    <string name="download">Download</string>
 </resources>

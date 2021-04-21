@@ -8,12 +8,17 @@
         android:name="com.methodproduction.bookito.View.StartingFragment"
         android:label="StartingFragment" >
         <action
-            android:id="@+id/action_startingFragment_to_bookListFragment"
-            app:destination="@id/bookListFragment" />
+            android:id="@+id/action_startingFragment_to_bookDetailFragment"
+            app:destination="@id/bookDetailFragment"
+            app:enterAnim="@anim/enter_detail_anim"
+            app:exitAnim="@anim/exit_starting_anim"
+            app:popEnterAnim="@anim/enter_starting_anim"
+            app:popExitAnim="@anim/exit_detail_anim"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
-        android:id="@+id/bookListFragment"
-        android:name="com.methodproduction.bookito.View.BookListFragment"
-        android:label="BookListFragment" />
+        android:id="@+id/bookDetailFragment"
+        android:name="com.methodproduction.bookito.View.BookDetailFragment"
+        android:label="BookDetailFragment" />
 
 </navigation>

@@ -1,14 +1,18 @@
 package com.methodproduction.bookito.Model;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
 import com.methodproduction.bookito.R;
 
 import java.util.ArrayList;
@@ -30,10 +34,35 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         holder.bookName.setText(items.get(position).getName());
         holder.author.setText(items.get(position).getAuthor());
-//        holder.bookImage.
+
+        holder.booksContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Book book;
+                book = bookInitializer(position);
+
+                Gson gson = new Gson();
+                String bookObject = gson.toJson(book, Book.class);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("book_detail_key", bookObject);
+
+                Navigation.findNavController(v).navigate(R.id.action_startingFragment_to_bookDetailFragment, bundle);
+            }
+        });
+    }
+
+    private Book bookInitializer(int position) {
+        Book book = new Book();
+        book.setName(items.get(position).getName());
+        book.setAuthor(items.get(position).getAuthor());
+        book.setPubDate(items.get(position).getPubDate());
+        book.setDetails(items.get(position).getDetails());
+        book.setImageUrl(items.get(position).getImageUrl());
+        return book;
     }
 
     @Override
@@ -45,13 +74,13 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.ViewHo
 
         public TextView bookName;
         public TextView author;
-        public ImageView bookImage;
+        public LinearLayout booksContainer;
 
         public ViewHolder(View view){
             super(view);
             bookName = view.findViewById(R.id.book_name_text);
             author = view.findViewById(R.id.book_author_text);
-            bookImage = view.findViewById(R.id.book_image);
+            booksContainer = view.findViewById(R.id.book_text_container);
         }
     }
 }
